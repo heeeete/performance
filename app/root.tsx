@@ -31,6 +31,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<Meta />
 				<Links />
+
+				<script
+					type="text/javascript"
+					src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=ho52wuu6a5&callback=CALLBACK_FUNCTION"
+				></script>
 			</head>
 			<body>
 				{children}
