@@ -1,13 +1,37 @@
-import type { PerformanceItem } from "~/routes/home/components/PopularPerf";
+import { type PerformanceItem } from "~/routes/home/components/PopularPerf";
+import { type SearchPerformance } from "~/routes/search/index";
 import { Link } from "react-router";
+import LazyImg from "./LazyImg";
 
 export default function PerfInfoCard({
 	data,
 	useRanking = false,
 }: {
-	data: PerformanceItem;
+	data: PerformanceItem | SearchPerformance;
 	useRanking?: boolean;
 }) {
+	if (!("rnum" in data)) {
+		return (
+			<Link
+				to={`/${data.mt20id}`}
+				className="border rounded-lg flex p-2 gap-2 border-gray-300 relative"
+			>
+				<LazyImg
+					src={data.poster}
+					alt={data.prfnm}
+					className="aspect-[3/4] w-[124px] object-cover rounded-lg shrink-0"
+				/>
+				<div className="flex-1 justify-center flex flex-col gap-2">
+					<p className="text-xs text-gray-500">{data.prfstate}</p>
+					<p className="text-blue-600 font-bold">
+						{data.prfpdfrom} ~ {data.prfpdto}
+					</p>
+					<p className="font-semibold text-sm">{data.prfnm}</p>
+					<p className="text-xs text-gray-500">{data.fcltynm}</p>
+				</div>
+			</Link>
+		);
+	}
 	return (
 		<Link
 			to={`/${data.mt20id}`}
@@ -18,11 +42,10 @@ export default function PerfInfoCard({
 					{data.rnum}
 				</div>
 			)}
-			<img
+			<LazyImg
 				src={data.poster}
 				alt={data.prfnm}
 				className="aspect-[3/4] w-[124px] object-cover rounded-lg shrink-0"
-				loading="lazy"
 			/>
 			<div className="flex-1 justify-center flex flex-col gap-2">
 				<p className="text-blue-600 font-bold">{data.prfpd}</p>
