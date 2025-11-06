@@ -10,8 +10,10 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Toggle } from "~/components/ui/toggle";
 import { areaData, cateCode } from "~/constants/search-code";
-import { Link } from "react-router";
+
 import PerfInfoCard from "~/components/PerfInfoCard";
+import SkeletonPerfInfoCard from "~/components/SkeletonPerfInfoCard";
+import { DotLottiePlayer } from "@dotlottie/react-player";
 
 export interface PerformanceItem {
 	/** 장르/카테고리 (예: "무용(서양/한국무용)") */
@@ -55,7 +57,6 @@ function PopularPerfSwiper({
 				}, [])
 			: [];
 
-	console.log(data);
 	const swiperRef = useRef<SwiperType | null>(null);
 
 	useEffect(() => {
@@ -93,6 +94,14 @@ function PopularPerfSwiper({
 						))}
 					</SwiperSlide>
 				))}
+			{data && data.length === 0 && (
+				<DotLottiePlayer
+					src="/lottie/sad.lottie"
+					autoplay
+					loop
+					style={{ width: 300, height: 300 }}
+				></DotLottiePlayer>
+			)}
 		</Swiper>
 	);
 }
@@ -100,6 +109,7 @@ function PopularPerfSwiper({
 export default function PopularPerf() {
 	const [area, setArea] = useState<keyof typeof areaData | "ALL">("ALL");
 	const [cate, setCate] = useState<keyof typeof cateCode | "ALL">("ALL");
+
 	return (
 		<div className="space-y-2">
 			<h3>현재 인기 순위</h3>
@@ -133,7 +143,13 @@ export default function PopularPerf() {
 					</Toggle>
 				))}
 			</div>
-			<Suspense fallback={<div>Loading...</div>}>
+			<Suspense
+				fallback={
+					<div className="grid grid-cols-3 gap-4 my-4">
+						<SkeletonPerfInfoCard count={9} />
+					</div>
+				}
+			>
 				<PopularPerfSwiper area={area} cate={cate} />
 			</Suspense>
 		</div>

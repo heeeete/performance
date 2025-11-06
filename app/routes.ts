@@ -12,5 +12,6 @@ export default [
 		route("popular-perf", "routes/apis/popular-perf.ts"),
 		route("perf/:id", "routes/apis/perf.ts"),
 		route("map/:id", "routes/apis/map.ts"),
+		route("search/:keyword", "routes/apis/search.ts"),
 	]),
 ] satisfies RouteConfig;
