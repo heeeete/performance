@@ -74,7 +74,7 @@ function PopularPerfSwiper({
 				swiper.slideTo(0, 0);
 			}}
 			spaceBetween={20}
-			className="!pt-2 !pb-4"
+			className="!py-4"
 			slidesPerView={3}
 			modules={[Scrollbar, Autoplay]}
 			scrollbar={{
@@ -142,7 +142,7 @@ export default function PopularPerf() {
 			</div>
 			<Suspense
 				fallback={
-					<div className="grid grid-cols-3 gap-4 my-4">
+					<div className="grid grid-cols-3 gap-4 py-4">
 						<SkeletonPerfInfoCard count={9} />
 					</div>
 				}

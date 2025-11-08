@@ -14,10 +14,6 @@ export function useGetJson<T>({
 	gcTime?: number;
 	useSuspense?: boolean;
 }) {
-	if (typeof window === "undefined") {
-		return { data: undefined, isLoading: false, isSuccess: false };
-	}
-
 	const result = useSuspense
 		? useSuspenseQuery({
 				queryKey: queryKey,
