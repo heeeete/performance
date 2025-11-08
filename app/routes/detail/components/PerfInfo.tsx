@@ -35,7 +35,7 @@ export default function PerfInfo() {
 					<dl className="grid col-span-6 grid-cols-6">
 						<dt className="col-span-1">좌석가격</dt>
 						<dd className="col-span-5">
-							{data?.pcseguidance.split(", ").map((relate, idx) => {
+							{data?.pcseguidance?.split(", ").map((relate, idx) => {
 								return <div key={idx}>{relate}</div>;
 							})}
 						</dd>

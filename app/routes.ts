@@ -13,5 +13,6 @@ export default [
 		route("perf/:id", "routes/apis/perf.ts"),
 		route("map/:id", "routes/apis/map.ts"),
 		route("search/:keyword", "routes/apis/search.ts"),
+		route("period-data", "routes/apis/period-data.ts"),
 	]),
 ] satisfies RouteConfig;

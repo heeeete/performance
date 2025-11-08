@@ -6,8 +6,6 @@ export const loader = async (args: LoaderFunctionArgs) => {
 	if (!kopisKey) {
 		throw new Error("KOPIS_API_KEY is not set");
 	}
-	// const { searchParams } = new URL(request.url);
-	// const id = searchParams.get("id");
 	const id = args.params.id;
 
 	const res = await fetch(
