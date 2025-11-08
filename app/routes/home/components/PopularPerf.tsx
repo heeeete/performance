@@ -13,7 +13,9 @@ import { areaData, cateCode } from "~/constants/search-code";
 
 import PerfInfoCard from "~/components/PerfInfoCard";
 import SkeletonPerfInfoCard from "~/components/SkeletonPerfInfoCard";
-import { DotLottiePlayer } from "@dotlottie/react-player";
+import { lazy } from "react";
+
+const LazyDotLottie = lazy(() => import("~/components/LazyDotLottie"));
 
 export interface PerformanceItem {
 	/** 장르/카테고리 (예: "무용(서양/한국무용)") */
@@ -95,12 +97,7 @@ function PopularPerfSwiper({
 					</SwiperSlide>
 				))}
 			{data && data.length === 0 && (
-				<DotLottiePlayer
-					src="/lottie/sad.lottie"
-					autoplay
-					loop
-					style={{ width: 300, height: 300 }}
-				></DotLottiePlayer>
+				<LazyDotLottie src="/lottie/sad.lottie" className="w-[300px] h-[300px]" />
 			)}
 		</Swiper>
 	);
