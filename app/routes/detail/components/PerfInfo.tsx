@@ -6,8 +6,6 @@ import Map from "./Map";
 export default function PerfInfo() {
 	const data: PerformanceDetail = useLoaderData<typeof loader>();
 
-	console.log(data);
-
 	return (
 		<>
 			<div>

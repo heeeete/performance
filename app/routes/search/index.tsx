@@ -5,6 +5,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchJSON } from "~/utils/fetch";
 import { Button } from "~/components/ui/button";
 import SkeletonPerfInfoCard from "~/components/SkeletonPerfInfoCard";
+import LazyDotLottie from "~/components/LazyDotLottie";
 
 export interface SearchPerformance {
 	/** 공연 고유 ID */
@@ -68,6 +69,15 @@ function SearchResult() {
 	}
 
 	const allItems = data?.pages.flatMap((page) => page.items) ?? [];
+
+	if (allItems.length === 0) {
+		return (
+			<div className="flex flex-col items-center">
+				<LazyDotLottie src="/lottie/sad.lottie" className="w-[300px] h-[300px]" />
+				<p className="text-gray-500 text-2xl">검색 결과가 없어요</p>
+			</div>
+		);
+	}
 
 	return (
 		<div className="flex flex-col items-center">

@@ -57,7 +57,6 @@ export const loader = perfLoader;
 export default function Detail() {
 	const data: PerformanceDetail = useLoaderData<typeof loader>();
 
-	console.log(data);
 	return (
 		<div className="max-w-7xl mx-auto">
 			<PerfInfo />
