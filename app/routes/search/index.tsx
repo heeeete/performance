@@ -41,10 +41,6 @@ export default function Search() {
 
 	return (
 		<div className="max-w-7xl mx-auto space-y-10">
-			<div className=" sticky top-0 bg-white z-10">
-				<SearchInput defaultValue={keyword} />
-			</div>
-
 			<SearchResult />
 		</div>
 	);
@@ -70,7 +66,7 @@ function SearchResult() {
 
 	const allItems = data?.pages.flatMap((page) => page.items) ?? [];
 
-	if (allItems.length === 0) {
+	if (allItems.length === 0 && !isLoading) {
 		return (
 			<div className="flex flex-col items-center">
 				<LazyDotLottie src="/lottie/sad.lottie" className="w-[300px] h-[300px]" />

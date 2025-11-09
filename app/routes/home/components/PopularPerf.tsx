@@ -109,37 +109,44 @@ export default function PopularPerf() {
 
 	return (
 		<div className="space-y-2">
-			<h3>현재 인기 순위</h3>
+			<h2 className="text-xl font-semibold">현재 인기 순위</h2>
 			{/* 지역 필터링 */}
-			<div className="flex gap-2">
-				{Object.keys(areaData).map((key) => (
-					<Toggle
-						variant={"outline"}
-						key={key}
-						pressed={area === key}
-						onPressedChange={(pressed) => {
-							setArea(pressed ? (key as keyof typeof areaData) : "ALL");
-						}}
-					>
-						{areaData[key as keyof typeof areaData]}
-					</Toggle>
-				))}
-			</div>
-			{/* 지역 필터링 */}
-			<div className="flex gap-2">
-				{Object.keys(cateCode).map((key) => (
-					<Toggle
-						variant={"outline"}
-						key={key}
-						pressed={cate === key}
-						onPressedChange={(pressed) => {
-							setCate(pressed ? (key as keyof typeof cateCode) : "ALL");
-						}}
-					>
-						{cateCode[key as keyof typeof cateCode]}
-					</Toggle>
-				))}
-			</div>
+			<section>
+				<h3>지역</h3>
+				<div className="flex gap-2">
+					{Object.keys(areaData).map((key) => (
+						<Toggle
+							variant={"outline"}
+							key={key}
+							pressed={area === key}
+							onPressedChange={(pressed) => {
+								setArea(pressed ? (key as keyof typeof areaData) : "ALL");
+							}}
+						>
+							{areaData[key as keyof typeof areaData]}
+						</Toggle>
+					))}
+				</div>
+			</section>
+			{/* 장르 필터링 */}
+
+			<section>
+				<h3>장르</h3>
+				<div className="flex gap-2">
+					{Object.keys(cateCode).map((key) => (
+						<Toggle
+							variant={"outline"}
+							key={key}
+							pressed={cate === key}
+							onPressedChange={(pressed) => {
+								setCate(pressed ? (key as keyof typeof cateCode) : "ALL");
+							}}
+						>
+							{cateCode[key as keyof typeof cateCode]}
+						</Toggle>
+					))}
+				</div>
+			</section>
 			<Suspense
 				fallback={
 					<div className="grid grid-cols-3 gap-4 py-4">
