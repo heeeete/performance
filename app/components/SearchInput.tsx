@@ -36,7 +36,10 @@ export function SearchInput({ defaultValue }: { defaultValue?: string }) {
 	};
 
 	return (
-		<form className="flex border py-2 px-4 rounded-full" onSubmit={handleSearch}>
+		<form
+			className="flex border shadow-sm py-2 px-4 rounded-full w-full bg-white"
+			onSubmit={handleSearch}
+		>
 			<input
 				ref={inputRef}
 				type="text"
