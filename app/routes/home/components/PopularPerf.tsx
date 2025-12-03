@@ -51,13 +51,14 @@ function PopularPerfSwiper({
 		url: `/api/popular-perf?area=${area}&cate=${cate}`,
 		queryKey: ["popular-perf", area, cate],
 	});
+
 	const chunkedData =
-		data && data.length > 0
+		data && Array.isArray(data)
 			? data.reduce<PerformanceItem[][]>((acc, _, i) => {
 					if (i % 3 === 0) acc.push(data.slice(i, i + 3));
 					return acc;
 				}, [])
-			: [];
+			: [[data]];
 
 	const swiperRef = useRef<SwiperType | null>(null);
 
@@ -92,12 +93,15 @@ function PopularPerfSwiper({
 				chunkedData.map((d, i) => (
 					<SwiperSlide key={i} className="h-auto space-y-4">
 						{d.map((d, j) => (
-							<PerfInfoCard key={j} data={d} useRanking={true} />
+							<PerfInfoCard key={j} data={d as PerformanceItem} useRanking={true} />
 						))}
 					</SwiperSlide>
 				))}
 			{data && data.length === 0 && (
-				<LazyDotLottie src="/lottie/sad.lottie" className="w-[300px] h-[300px]" />
+				<div className="mx-auto w-fit">
+					<LazyDotLottie src="/lottie/sad.lottie" className="w-[300px] h-[300px]" />
+					<p className="text-center text-gray-400">검색 결과가 없습니다 🥲</p>
+				</div>
 			)}
 		</Swiper>
 	);
