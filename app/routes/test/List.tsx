@@ -3,6 +3,7 @@ export default function List({
 	onSelect,
 }: {
 	items: string[];
+
 	onSelect: (item: string) => void;
 }) {
 	console.log("List 렌더 실행됨");
