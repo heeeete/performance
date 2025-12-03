@@ -5,6 +5,7 @@ export default [
 		index("routes/home/index.tsx"),
 		route(":id", "routes/detail/index.tsx"),
 		route("search/:keyword", "routes/search/index.tsx"),
+		// route("test", "routes/test/index.tsx"),
 	]),
 
 	// * APIs
