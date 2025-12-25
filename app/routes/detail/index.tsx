@@ -1,9 +1,6 @@
-import { Link, useLoaderData, useParams, type LoaderFunctionArgs } from "react-router";
-import { useGetJson } from "~/hooks/useGetJson";
+import { useLoaderData } from "react-router";
 import { loader as perfLoader } from "../apis/perf";
-import { SquareArrowOutUpRightIcon } from "lucide-react";
 import PerfInfo from "./components/PerfInfo";
-import Map from "./components/Map";
 import { Separator } from "~/components/ui/separator";
 
 export interface PerformanceDetail {
