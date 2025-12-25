@@ -28,7 +28,6 @@
 
 #### React Query를 사용해 서버측 상태를 캐싱해 사용자 경험 향상
 필터(토글) 상태에 따라 데이터가 바뀌는 구조라, 전환 시 지연을 줄이기 위해 캐싱이 필요하다고 판단했다.
-
 아래 이미지에서 선택한 지역과 장르에 해당하는 데이터를 가져온다.
 
 <img width="1332" height="790" alt="image" src="https://github.com/user-attachments/assets/fea77330-8d80-401e-ba14-3f225ebf4627" />
