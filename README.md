@@ -48,9 +48,7 @@ useGetJson은 React Query의 useQuery / useSuspenseQuery를 감싼(fetch 전용)
 - useSuspense: false로 두면 일반 useQuery로 동작합니다.
 ```
 
-
-
-#### Vercel CDN으로 React Router 서버 액션 캐싱하기
+### Vercel CDN으로 React Router 서버 액션 캐싱하기
 
 메인페이지의 스와이퍼 영역은 사용자가 가장 **처음 마주하는 곳이기 때문에 아주 빠르게 렌더링**이 돼야 한다고 생각했다.
 
@@ -81,9 +79,7 @@ export const loader = async ({ request }: { request: Request }) => {
 
 > secondsUntilMidnight는 지금부터 다음 자정까지 남은 시간(초)이라 캐시 만료를 하루 단위로 맞추는 용도다.
 
-
-
-#### 번들 사이즈 최적화
+### 번들 사이즈 최적화
 
 ![image-20251226080427954](C:\Users\mkoui\AppData\Roaming\Typora\typora-user-images\image-20251226080427954.png)
 
