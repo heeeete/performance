@@ -81,7 +81,7 @@ export const loader = async ({ request }: { request: Request }) => {
 
 ### 번들 사이즈 최적화
 
-![image-20251226080427954](C:\Users\mkoui\AppData\Roaming\Typora\typora-user-images\image-20251226080427954.png)
+<img width="1305" height="477" alt="image" src="https://github.com/user-attachments/assets/082807fb-746c-4121-b016-9e374f244ea3" />
 
 메인페이지 스와이퍼 영역에 `@dotlottie/react-player` 패키지를 사용한다.
 
