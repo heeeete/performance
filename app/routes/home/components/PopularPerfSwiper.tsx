@@ -48,7 +48,7 @@ export default function PopularPerfSwiper({
                 swiper.slideTo(0, 0);
             }}
             spaceBetween={20}
-            className="!py-4"
+            className="py-4!"
             slidesPerView={3}
             modules={[Scrollbar, Autoplay]}
             scrollbar={{

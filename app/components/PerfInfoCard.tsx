@@ -20,7 +20,7 @@ export default function PerfInfoCard({
                 <LazyImg
                     src={data.poster}
                     alt={data.prfnm}
-                    className="aspect-[3/4] w-[124px] object-cover rounded-lg shrink-0"
+                    className="aspect-3/4 w-[124px] object-cover rounded-lg shrink-0"
                 />
                 <div className="flex-1 justify-center flex flex-col gap-2">
                     <p className="text-xs text-gray-500">{data.prfstate}</p>
@@ -46,7 +46,7 @@ export default function PerfInfoCard({
             <LazyImg
                 src={data.poster}
                 alt={data.prfnm}
-                className="aspect-[3/4] w-[124px] object-cover rounded-lg shrink-0"
+                className="aspect-3/4 w-[124px] object-cover rounded-lg shrink-0"
             />
             <div className="flex-1 justify-center flex flex-col gap-2">
                 <p className="text-blue-600 font-bold">{data.prfpd}</p>
