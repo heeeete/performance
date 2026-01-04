@@ -5,9 +5,7 @@
 # React Router
 /.react-router/
 /build/
-
 /dist/
-
 
 # zero install 미사용
 .pnp.*
